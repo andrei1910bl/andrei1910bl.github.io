@@ -8,13 +8,14 @@
 </head>
 <body>
     <header>
+        <button id="theme-toggle" aria-label="Переключить тему">🌙</button>
         <div class="container">
             <h1>HomeFoodie</h1>
             <p>Найди свой домашний вкус</p>
         </div>
     </header>
 
-    <nav>
+    <nav aria-label="Основная навигация">
         <div class="container">
             <ul>
                 <li><a href="#idea">Идея</a></li>
@@ -48,25 +49,41 @@
                 <h2>Наша команда</h2>
                 <div class="team-grid">
                     <div class="team-member">
-                        <img src="images/team-member.jpeg" alt="Участник команды 1">
+                        <picture>
+                            <source srcset="images/team-member.jpeg" media="(min-width: 601px)">
+                            <source srcset="images/team-member2.jpeg" media="(max-width: 600px)">
+                            <img src="images/team-member.jpeg" alt="Участник команды 1">
+                        </picture>
                         <h3>Андрей</h3>
                         <p>CEO</p>
                         <p>Back End</p>
                     </div>
                     <div class="team-member">
-                        <img src="images/team-member2.jpeg" alt="Участник команды 2">
+                        <picture>
+                            <source srcset="images/team-member2.jpeg" media="(min-width: 601px)">
+                            <source srcset="images/team-member.jpeg" media="(max-width: 600px)">
+                            <img src="images/team-member2.jpeg" alt="Участник команды 2">
+                        </picture>
                         <h3>Никита</h3>
                         <p>Разработчик</p>
                         <p>Front End</p>
                     </div>
                     <div class="team-member">
-                        <img src="images/team-member3.jpeg" alt="Участник команды 3">
+                        <picture>
+                            <source srcset="images/team-member3.jpeg" media="(min-width: 601px)">
+                            <source srcset="images/team-member2.jpeg" media="(max-width: 600px)">
+                            <img src="images/team-member3.jpeg" alt="Участник команды 3">
+                        </picture>
                         <h3>Никита</h3>
                         <p>Дизайнер</p>
                         <p>UI</p>
                     </div>
                    <div class="team-member">
-                        <img src="images/team-member4.jpeg" alt="Участник команды 3">
+                        <picture>
+                            <source srcset="images/team-member4.jpeg" media="(min-width: 601px)">
+                            <source srcset="images/team-member3.jpeg" media="(max-width: 600px)">
+                            <img src="images/team-member4.jpeg" alt="Участник команды 4">
+                        </picture>
                         <h3>Захар</h3>
                         <p>Продукт Менеджер</p>
                         <p></p>
@@ -80,7 +97,10 @@
                 <h2>Наш прототип</h2>
                 <div class="section-content">
                     <div class="prototype-image">
-                        <img src="images/prototype.jpg" alt="Изображение прототипа продукта">
+                        <picture>
+                            <source srcset="images/prototype.jpg" media="(min-width: 601px)">
+                            <img src="images/prototype.jpg" alt="Изображение прототипа продукта">
+                        </picture>
                     </div>
                     <p>Уже реализован основной функционал приложения.</p>
                     <h3>Этапы разработки:</h3>
@@ -147,4 +167,22 @@
         </div>
     </footer>
 </body>
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+const userTheme = localStorage.getItem('theme');
+if (userTheme) {
+    document.documentElement.setAttribute('data-theme', userTheme);
+    themeToggle.textContent = userTheme === 'dark' ? '☀️' : '🌙';
+} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeToggle.textContent = '☀️';
+}
+themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+});
+</script>
 </html>
