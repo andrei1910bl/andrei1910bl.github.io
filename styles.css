@@ -13,40 +13,52 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 
 /* Тёмная тема */
 /* Тёмная тема с ручным переключением */
-[data-theme="dark"] {
-    body {
-        background-color: #181818;
-        color: #f3f3f3;
-    }
-    header, nav, footer {
-        background: #23232b;
-        color: #fff;
-    }
-    .container, .section-content {
-        background: #232323;
-        color: #f3f3f3;
-    }
-    table, th, td {
-        border-color: #444;
-    }
-    th {
-        background-color: #444;
-        color: #fff;
-    }
-    tr:nth-child(even) {
-        background-color: #222;
-    }
-    nav ul li a {
-        color: #f3f3f3;
-    }
-    nav ul li a:hover {
-        color: #a777e3;
-    }
-    /* Улучшение читаемости */
-    h1, h2, h3, h4, h5, h6, p, li, td, th {
-        color: #f3f3f3;
-        text-shadow: 0 1px 2px #111a;
-    }
+[data-theme="dark"] body {
+    background-color: #181818;
+    color: #f3f3f3;
+}
+[data-theme="dark"] header,
+[data-theme="dark"] nav,
+[data-theme="dark"] footer {
+    background: #23232b;
+    color: #fff;
+}
+[data-theme="dark"] .container,
+[data-theme="dark"] .section-content {
+    background: #232323;
+    color: #f3f3f3;
+}
+[data-theme="dark"] table,
+[data-theme="dark"] th,
+[data-theme="dark"] td {
+    border-color: #444;
+}
+[data-theme="dark"] th {
+    background-color: #444;
+    color: #fff;
+}
+[data-theme="dark"] tr:nth-child(even) {
+    background-color: #222;
+}
+[data-theme="dark"] nav ul li a {
+    color: #f3f3f3;
+}
+[data-theme="dark"] nav ul li a:hover {
+    color: #a777e3;
+}
+/* Улучшение читаемости */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] td,
+[data-theme="dark"] th {
+    color: #f3f3f3;
+    text-shadow: 0 1px 2px #111a;
 }
 
 @media (prefers-color-scheme: dark) {
